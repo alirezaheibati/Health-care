@@ -1,5 +1,10 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
+/**
+ * NavSearchForm Component
+ *
+ * This component renders a search form with a search button and an input field.
+ */
 export default function NavSearchBox() {
   return (
     <form className="bg-red-300 h-12 w-96 rounded-full relative ">
