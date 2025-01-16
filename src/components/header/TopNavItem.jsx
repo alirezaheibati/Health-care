@@ -1,3 +1,16 @@
+/**
+ * TopNavItem Component
+ *
+ * This component renders a navigation item with an icon and title.
+ *
+ * Props:
+ * - title (string): The title of the navigation item.
+ * - icon (object): The FontAwesomeIcon to display.
+ * - isSpecial (boolean): If true, applies special styling to the item.
+ *
+ * Example usage:
+ * <TopNavItem title="Home" icon={faHouseChimney} isSpecial={true} />
+ */
 export default function TopNavItem({ title, icon, isSpecial }) {
   return (
     <li className={`group ${isSpecial ? "text-orange-500" : "text-slate-700"}`}>
