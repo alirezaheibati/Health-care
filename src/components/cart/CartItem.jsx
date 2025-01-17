@@ -1,3 +1,11 @@
+/**
+ * CartItem Component
+ *
+ * Displays an individual item in the shopping cart with buttons to increase or decrease the item amount.
+ *
+ * Props:
+ * - `item` (object): The item object containing title, price, amount, and image.
+ */
 export default function CartItem({ item }) {
   function increaseitemAmountHandler() {}
   function decreaseitemAmountHandler() {}
