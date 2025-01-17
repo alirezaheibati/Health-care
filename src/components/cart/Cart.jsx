@@ -1,3 +1,12 @@
+/**
+ * Cart Component
+ *
+ * Displays a shopping cart with options to checkout or close the cart.
+ *
+ * Props:
+ * - `showCart` (bool): Controls the visibility of the cart.
+ * - `onHideCart` (func): Function to hide the cart.
+ */
 export default function Cart({ showCart, onHideCart }) {
   function hideCartHandler() {
     onHideCart();
