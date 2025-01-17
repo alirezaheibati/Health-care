@@ -16,6 +16,12 @@ import TopNavItem from "./TopNavItem.jsx";
 import { useState } from "react";
 import Cart from "../cart/Cart.jsx";
 
+/**
+ * TopNav Component
+ *
+ * Displays the top navigation bar with a logo, search box, and navigation items.
+ * Includes a shopping cart button that toggles the cart's visibility.
+ */
 export default function TopNav() {
   const [showCart, setShowCart] = useState(false);
   function handleCloseCart() {
