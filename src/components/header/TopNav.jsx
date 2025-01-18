@@ -15,6 +15,7 @@ import NavSearchBox from "./NavSearchBox.jsx";
 import TopNavItem from "./TopNavItem.jsx";
 import { useState } from "react";
 import Cart from "../cart/Cart.jsx";
+import SideNav from "./SideNav.jsx";
 
 /**
  * TopNav Component
@@ -24,15 +25,24 @@ import Cart from "../cart/Cart.jsx";
  */
 export default function TopNav() {
   const [showCart, setShowCart] = useState(false);
+  const [showNav, setShowNav] = useState(true);
+
   function handleCloseCart() {
     setShowCart(false);
   }
   function handleShowCart() {
     setShowCart(true);
   }
+  function handleCloseNav() {
+    setShowNav(false);
+  }
+  function handleShowNav() {
+    setShowNav(true);
+  }
   return (
     <>
       <Cart showCart={showCart} onHideCart={handleCloseCart} />
+      <SideNav menuVisibility={showNav} onCloseNav={handleCloseNav} />
       <nav className="bg-gray-100 p-3 pb-1 lg:px-6 w-full rounded-lg">
         <div className="w-full flex justify-between items-center">
           <div className="flex justify-start items-center gap-2">
@@ -46,7 +56,10 @@ export default function TopNav() {
               <FontAwesomeIcon icon={faRightToBracket} />
               <p>Login | Register</p>
             </button>
-            <button className="lg:text-3xl text-2xl md:hidden ml-2 md:ml-0">
+            <button
+              className="lg:text-3xl text-2xl md:hidden ml-2 md:ml-0"
+              onClick={handleShowNav}
+            >
               <FontAwesomeIcon icon={faBars} />
             </button>
             <p className="lg:text-3xl text-2xl text-gray-600">&nbsp;|</p>
