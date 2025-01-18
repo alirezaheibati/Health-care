@@ -1,4 +1,14 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+/**
+ * SideNavItem Component
+ *
+ * Displays an individual navigation item with an icon and a title.
+ * Props:
+ * - `icon` (object): The icon to be displayed.
+ * - `title` (string): The title of the navigation item.
+ * - `linkTo` (string): The URL the navigation item links to.
+ * - `isSpecial` (bool): If true, applies a special styling to the item.
+ */
 export default function SideNavItem({ icon, title, linkTo, isSpecial }) {
   return (
     <li
