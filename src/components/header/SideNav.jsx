@@ -10,6 +10,14 @@ import {
   faXmark,
 } from "@fortawesome/free-solid-svg-icons";
 import SideNavItem from "./SideNavItem.jsx";
+/**
+ * SideNav Component
+ *
+ * Displays a side navigation menu with various navigation items.
+ * Props:
+ * - `menuVisibility` (bool): Controls the visibility of the side navigation menu.
+ * - `onCloseNav` (func): Function to close the side navigation menu.
+ */
 export default function SideNav({ menuVisibility, onCloseNav }) {
   return (
     <div
