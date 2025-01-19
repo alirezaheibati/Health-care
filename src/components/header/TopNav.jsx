@@ -25,7 +25,7 @@ import SideNav from "./SideNav.jsx";
  */
 export default function TopNav() {
   const [showCart, setShowCart] = useState(false);
-  const [showNav, setShowNav] = useState(true);
+  const [showNav, setShowNav] = useState(false);
 
   function handleCloseCart() {
     setShowCart(false);
