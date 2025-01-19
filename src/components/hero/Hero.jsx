@@ -6,6 +6,13 @@ import {
   faHourglass1,
 } from "@fortawesome/free-solid-svg-icons";
 import HeroFeature from "./HeroFeature";
+/**
+ * Hero Component
+ *
+ * Displays the main hero section with a title, features, and a call-to-action button.
+ * Props:
+ * - None
+ */
 export default function Hero() {
   return (
     <>
