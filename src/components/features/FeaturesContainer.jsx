@@ -1,11 +1,15 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import feature1 from "./../../assets/feature-1.png";
 import feature2 from "./../../assets/feature-2.png";
 import feature3 from "./../../assets/feature-3.png";
 import feature4 from "./../../assets/feature-4.png";
 
-import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import SingleFeature from "./SingleFeature";
+/**
+ * FeaturesContainer Component
+ *
+ * This component displays a container with multiple feature cards, each represented by the SingleFeature component.
+ * It showcases different features with images, titles, and descriptions.
+ */
 export default function FeaturesContainer() {
   return (
     <>
