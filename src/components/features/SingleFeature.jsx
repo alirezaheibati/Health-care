@@ -1,5 +1,17 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
+/**
+ * SingleFeature Component
+ *
+ * This component displays a single feature card with an image, title, description, and a button.
+ * The title supports line breaks within the text.
+ *
+ * Props:
+ * - `bgColor` (string): The background color class for the feature card.
+ * - `image` (string): The URL of the image to be displayed.
+ * - `title` (string): The title text of the feature, which supports line breaks using "<br />".
+ * - `description` (string): The description text of the feature.
+ */
 export default function SingleFeature({ bgColor, image, title, description }) {
   const formatedText = title.split("<br />");
   return (
