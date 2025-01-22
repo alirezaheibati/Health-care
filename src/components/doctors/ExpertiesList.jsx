@@ -7,6 +7,14 @@ import Ophthalmologist from "./../../assets/disease/Ophthalmologist.png";
 import Physiotherapist from "./../../assets/disease/Physiotherapist.png";
 import Psychiatrist from "./../../assets/disease/Psychiatrist.png";
 import ExpertiseBtn from "./ExpertiseBtn";
+/**
+ * ExpertiesList Component
+ *
+ * Displays a list of expertise categories with buttons for selection.
+ *
+ * This component imports images representing different medical specialties and
+ * uses the `ExpertiseBtn` component to display each category as a button.
+ */
 export default function ExpertiesList() {
   return (
     <ul className=" no-arrows w-[calc(100%-17px)] py-4 flex justify-start items-end gap-2 overflow-x-auto">
