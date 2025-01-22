@@ -1,3 +1,13 @@
+/**
+ * ExpertiseBtn Component
+ *
+ * A button component for selecting expertise categories with dynamic styles.
+ *
+ * Props:
+ * - `title` (string): The title of the expertise category.
+ * - `image` (string): The URL of the image representing the expertise category.
+ * - `isActive` (bool): Indicates whether the button is active or not.
+ */
 export default function ExpertiseBtn({ title, image, isActive }) {
   return (
     <li
