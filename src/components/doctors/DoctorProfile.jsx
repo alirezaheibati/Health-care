@@ -1,3 +1,13 @@
+/**
+ * DoctorProfile Component
+ *
+ * Displays a doctor's profile with their image, name, and area of expertise.
+ *
+ * Props:
+ * - `name` (string): The name of the doctor.
+ * - `image` (string): The URL of the image representing the doctor.
+ * - `expertise` (string): The doctor's area of expertise.
+ */
 export default function DoctorProfile({ name, image, expertise }) {
   return (
     <li className="w-[49%] md:w-[33%] lg:w-[19%] shrink-0">
