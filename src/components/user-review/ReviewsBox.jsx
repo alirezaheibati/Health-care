@@ -1,5 +1,11 @@
 import UserReview from "./UserReview";
-
+/**
+ * ReviewsBox Component
+ *
+ * Displays a user review and a series of dots representing the pagination or navigation for reviews.
+ *
+ * Props: None
+ */
 export default function ReviewsBox() {
   return (
     <>
