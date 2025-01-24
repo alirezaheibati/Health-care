@@ -1,5 +1,12 @@
 import { faStar, faStarHalf } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+/**
+ * ReviewsAverage Component
+ *
+ * Displays the average reviews rating for doctors and clinics, with a star rating visualization.
+ *
+ * Props: None
+ */
 export default function ReviewsAverage() {
   return (
     <>
