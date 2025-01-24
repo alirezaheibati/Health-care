@@ -1,5 +1,11 @@
 import patient from "./../../assets/doctors/doctor-8.png";
-
+/**
+ * UserReview Component
+ *
+ * Displays a user review with the reviewer's image, name, and a text review.
+ *
+ * Props: None
+ */
 export default function UserReview() {
   return (
     <div className="border-2 rounded-lg p-2 lg:p-12 w-3/4 mx-auto flex justify-between items-center flex-col lg:flex-row">
