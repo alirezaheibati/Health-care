@@ -1,6 +1,13 @@
 import { faPlay } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import nutrition from "./../../assets/nutrition.png";
+/**
+ * Podcast Component
+ *
+ * Displays a podcast promotional card with an image, title, description, and play button.
+ *
+ * Props: None
+ */
 export default function Podcast() {
   return (
     <div className="w-full h-full relative bg-[#f1da69] text-[#252c62] rounded-xl p-3 sm:p-8">
