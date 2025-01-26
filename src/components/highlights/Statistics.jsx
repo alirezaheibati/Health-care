@@ -1,3 +1,15 @@
+/**
+ * Statistics Component
+ *
+ * Displays a statistics card with a background color, image, title, and description.
+ *
+ * Props:
+ * - `title` (string): The title of the statistics card.
+ * - `description` (string): The description of the statistics card.
+ * - `bgColor` (string): The background color class for the card.
+ * - `image` (string): The URL of the image to be displayed in the background.
+ *
+ */
 export default function Statistics({ title, description, bgColor, image }) {
   return (
     <div
