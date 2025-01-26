@@ -1,5 +1,10 @@
 import VideoCall from "./../../assets/video-call.png";
-
+/**
+ * LiveEvent Component
+ *
+ * Displays a promotional card for a live event with an image, title, date, and label.
+ *
+ */
 export default function LiveEvent() {
   return (
     <div className="w-full h-full relative bg-[#252c62] text-slate-50 flex flex-col justify-between items-start rounded-xl p-3 sm:p-8">
