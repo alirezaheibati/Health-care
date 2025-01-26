@@ -3,7 +3,13 @@ import Podcast from "./Podcast";
 import Statistics from "./Statistics";
 import customer from "./../../assets/customer.png";
 import calendar from "./../../assets/calendar.png";
-
+/**
+ * Highlights Component
+ *
+ * Displays a grid of highlight cards, including a podcast, live event, and statistics.
+ *
+ * Props: None
+ */
 export default function Highlights() {
   return (
     <div className=" p-3 grid grid-cols-2 grid-rows-4 gap-2 w-full max-w-[400px] mx-auto md:grid-cols-4 md:grid-rows-2 md:max-w-[808px]">
