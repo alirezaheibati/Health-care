@@ -6,7 +6,13 @@ import {
   faTwitter,
 } from "@fortawesome/free-brands-svg-icons";
 import SocialMedaiBtn from "./SocialMedaiBtn";
-
+/**
+ * Footer Component
+ *
+ * Displays the footer section with links to download the app and social media buttons.
+ *
+ * Props: None
+ */
 export default function Footer() {
   return (
     <div className="rounded-t-2xl bg-[#252c62] p-12 pb-0 ">
