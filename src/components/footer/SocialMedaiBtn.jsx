@@ -1,9 +1,13 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faInstagram,
-  faLinkedinIn,
-  faTwitter,
-} from "@fortawesome/free-brands-svg-icons";
+/**
+ * SocialMedaiBtn Component
+ *
+ * Displays a button for social media links using FontAwesome icons.
+ *
+ * Props:
+ * - `icon` (object): The FontAwesome icon to display in the button.
+ * - `linkTo` (string): The URL to which the button links.
+ */
 export default function SocialMedaiBtn({ icon, linkTo }) {
   return (
     <a
