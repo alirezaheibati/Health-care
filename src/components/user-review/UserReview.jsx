@@ -3,7 +3,10 @@
  *
  * Displays a user review with the reviewer's image, name, and a text review.
  *
- * Props: None
+ * Props:
+ * - `review` (object): The review object containing the reviewer's image, name, and comment.
+ * - `isActive` (boolean): Indicates whether the review is active and should be displayed.
+ *
  */
 export default function UserReview({ review, isActive }) {
   return (
