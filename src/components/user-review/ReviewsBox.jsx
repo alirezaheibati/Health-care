@@ -6,14 +6,21 @@ import PaginationDot from "./PaginationDot";
  *
  * Displays a user review and a series of dots representing the pagination or navigation for reviews.
  *
+ * State:
+ * - `reviews` (array): An array of review objects fetched from the API.
+ * - `activeReview` (string|null): The ID of the currently active review.
+ *
  * Props: None
  */
 export default function ReviewsBox() {
   const [reviews, setReviews] = useState([]);
   const [activeReview, setActiveReview] = useState(null);
+
+  // Sets the active review based on the selected dot's ID
   function handleSelectionDot(id) {
     setActiveReview(id);
   }
+
   useEffect(() => {
     async function loadReviews() {
       try {
