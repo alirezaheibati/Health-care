@@ -14,7 +14,7 @@ import PaginationDot from "./PaginationDot";
  */
 export default function ReviewsBox() {
   const [reviews, setReviews] = useState([]);
-  const [activeReview, setActiveReview] = useState(null);
+  const [activeReview, setActiveReview] = useState();
 
   // Sets the active review based on the selected dot's ID
   function handleSelectionDot(id) {
@@ -46,6 +46,20 @@ export default function ReviewsBox() {
       }
     }
     loadReviews();
+  }, []);
+  // Sets up an interval to automatically change the active review at set intervals.
+  useEffect(() => {
+    if (reviews.length === 0) return;
+    const interval = setInterval(() => {
+      setActiveReview((prevReviewId) => {
+        const currentIndex = reviews.findIndex(
+          (review) => review.objectId === prevReviewId
+        );
+        const nextIndex = (currentIndex + 1) % reviews.length;
+        return reviews[nextIndex].objectId;
+      });
+    }, 3000);
+    return () => clearInterval(reviewInterval);
   }, []);
   return (
     <>
