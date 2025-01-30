@@ -1,3 +1,11 @@
+/**
+ * ErrorModal Component
+ *
+ * This component displays an error modal with a title and message. The modal can be closed by clicking the "Ok" button.
+ *
+ * Usage:
+ * <ErrorModal />
+ */
 export default function ErrorModal() {
   return (
     <div className="fixed left-0 top-0 w-screen h-screen flex justify-center items-center z-[100]">
