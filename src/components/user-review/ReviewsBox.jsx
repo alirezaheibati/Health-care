@@ -59,7 +59,7 @@ export default function ReviewsBox() {
         return reviews[nextIndex].objectId;
       });
     }, 3000);
-    return () => clearInterval(reviewInterval);
+    return () => clearInterval(interval);
   }, []);
   return (
     <>
