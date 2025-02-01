@@ -1,4 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Link } from "react-router-dom";
 /**
  * TopNavItem Component
  *
@@ -12,12 +13,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
  * Example usage:
  * <TopNavItem title="Home" icon={faHouseChimney} isSpecial={true} />
  */
-export default function TopNavItem({ title, icon, isSpecial }) {
+export default function TopNavItem({ title, icon, isSpecial, linkTo }) {
   return (
     <li className={`group ${isSpecial ? "text-orange-500" : "text-slate-700"}`}>
       <div className="px-3">
         <FontAwesomeIcon icon={icon} className="text-sm mb-[2px] mr-1" />
-        <a href="#">{title}</a>
+        <Link to={linkTo}>{title}</Link>
       </div>
       <div className="w-0 bg-slate-700 h-[2px] group-hover:w-full transition-width duration-300 ease-in-out"></div>
     </li>
