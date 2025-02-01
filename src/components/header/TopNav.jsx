@@ -72,12 +72,37 @@ export default function TopNav() {
           </div>
         </div>
         <ul className="mt-3 text-lg md:flex justify-start items-center hidden">
-          <TopNavItem title={"Home"} icon={faHouseChimney} />
-          <TopNavItem title={"Shop"} icon={faShop} />
-          <TopNavItem title={"Book an appointment"} icon={faCalendarCheck} />
-          <TopNavItem title={"FAQs"} icon={faCircleQuestion} />
-          <TopNavItem title={"Contact"} icon={faAddressBook} />
-          <TopNavItem title={"Offers"} icon={faGift} isSpecial={true} />
+          <TopNavItem
+            title={"Home"}
+            icon={faHouseChimney}
+            linkTo={"/projects/healthcare"}
+          />
+          <TopNavItem
+            title={"Shop"}
+            icon={faShop}
+            linkTo={"/projects/healthcare/shop"}
+          />
+          <TopNavItem
+            title={"Book an appointment"}
+            icon={faCalendarCheck}
+            linkTo={"/projects/healthcare/book-appointment"}
+          />
+          <TopNavItem
+            title={"FAQs"}
+            icon={faCircleQuestion}
+            linkTo={"/projects/healthcare/FAQs"}
+          />
+          <TopNavItem
+            title={"Contact"}
+            icon={faAddressBook}
+            linkTo={"/projects/healthcare/contact"}
+          />
+          <TopNavItem
+            title={"Offers"}
+            icon={faGift}
+            isSpecial={true}
+            linkTo={"/projects/healthcare/shop"}
+          />
         </ul>
       </nav>
     </>
