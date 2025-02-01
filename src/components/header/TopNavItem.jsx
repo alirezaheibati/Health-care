@@ -9,6 +9,7 @@ import { Link } from "react-router-dom";
  * - title (string): The title of the navigation item.
  * - icon (object): The FontAwesomeIcon to display.
  * - isSpecial (boolean): If true, applies special styling to the item.
+ * - linkTo (string): The path to which the navigation item links.
  *
  * Example usage:
  * <TopNavItem title="Home" icon={faHouseChimney} isSpecial={true} />
