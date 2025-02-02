@@ -15,8 +15,8 @@ import SocialMedaiBtn from "./SocialMedaiBtn";
  */
 export default function Footer() {
   return (
-    <div className="rounded-t-2xl bg-[#252c62] p-12 pb-0 ">
-      <div className="bg-slate-50 rounded-t-2xl p-8 pb-2 flex justify-between items-center">
+    <div className="rounded-t-2xl bg-[#252c62] p-4 sm:p-12 pb-0 sm:pb-0">
+      <div className="bg-slate-50 rounded-t-2xl p-4 sm:p-8 pb-2 sm:pb-2 flex flex-col md:flex-row gap-4 justify-between items-center">
         <div className="flex justify-start items-center gap-2 [&_img]:w-40">
           <a href="#">
             <img src={googlePlay} alt="Google Play" />
@@ -31,8 +31,9 @@ export default function Footer() {
           <SocialMedaiBtn icon={faLinkedinIn} linkTo={"#"} />
         </div>
       </div>
-      <p className="bg-slate-50 text-center text-[#252c62] pb-2">
-        Copyright@2025 - Designed by Love. Alirezazzz
+      <p className="bg-slate-50 text-center text-[#252c62] pb-2 text-sm sm:text-base">
+        Copyright@2025 -{" "}
+        <span className="hidden sm:inline">Designed by Love.</span>Alirezazzz
       </p>
     </div>
   );
