@@ -52,27 +52,35 @@ export default function SideNav({ menuVisibility, onCloseNav }) {
         />
         <div className="w-full pt-48 grow relative text-slate-100 px-4 flex flex-col justify-start items-start">
           <ul>
-            <SideNavItem title={"Home"} icon={faHome} linkTo={"./"} />
-            <SideNavItem title={"Shop"} icon={faStore} linkTo={"./shop"} />
+            <SideNavItem
+              title={"Home"}
+              icon={faHome}
+              linkTo={"/projects/healthcare"}
+            />
+            <SideNavItem
+              title={"Shop"}
+              icon={faStore}
+              linkTo={"/projects/healthcare/shop"}
+            />
             <SideNavItem
               title={"Book an appointment"}
               icon={faCalendarCheck}
-              linkTo={"./book"}
+              linkTo={"/projects/healthcare/book-appointment"}
             />
             <SideNavItem
               title={"FAQs"}
               icon={faCircleQuestion}
-              linkTo={"./faqs"}
+              linkTo={"/projects/healthcare/FAQs"}
             />
             <SideNavItem
               title={"Contact"}
               icon={faAddressBook}
-              linkTo={"./contactus"}
+              linkTo={"/projects/healthcare/contact"}
             />
             <SideNavItem
               title={"Offers"}
               icon={faGift}
-              linkTo={"./gift"}
+              linkTo={"/projects/healthcare/shop"}
               isSpecial
             />
           </ul>
