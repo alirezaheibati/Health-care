@@ -3,7 +3,7 @@ import FilterItems from "./FilterItems";
 import ItemsContainer from "./ItemsContainer";
 import SortItems from "./SortItems";
 import { itemsActions } from "../../store/items-slice";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 /**
  * ShopContainer Component
  *
@@ -15,7 +15,9 @@ import { useEffect } from "react";
  */
 export default function ShopContainer() {
   const dispatch = useDispatch();
+  const [isFetching, setIsFetching] = useState(false);
   useEffect(() => {
+    setIsFetching(true);
     async function loadItems() {
       try {
         const responese = await fetch(
@@ -33,8 +35,10 @@ export default function ShopContainer() {
           throw new Error("Fetching items failed");
         }
         const data = await responese.json();
+        setIsFetching(false);
         dispatch(itemsActions.setItems(data.results));
       } catch (err) {
+        setIsFetching(false);
         console.log(err);
       }
     }
@@ -44,7 +48,7 @@ export default function ShopContainer() {
     <div className="bg-slate-100 mt-2 rounded-xl p-2">
       <SortItems />
       <div className="w-full flex justify-start items-start mt-2">
-        <ItemsContainer />
+        <ItemsContainer isFetching={isFetching} />
         <FilterItems />
       </div>
     </div>
