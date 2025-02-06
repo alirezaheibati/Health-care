@@ -1,3 +1,10 @@
+/**
+ * InnerSpinner Component
+ *
+ * Displays a loading spinner, which can be used to indicate loading or processing states within your application.
+ *
+ * Props: None
+ */
 export default function InnerSpinner() {
   return (
     <div className="w-full h-full flex justify-center items-center my-8">
