@@ -9,6 +9,17 @@ const itemsSlice = createSlice({
         return { ...item, createdAt: Date.parse(item.createdAt) };
       });
     },
+    sortItems(state, action) {
+      if (action.payload === "date-desc") {
+        state.items.sort((a, b) => b.createdAt - a.createdAt);
+      } else if (action.payload === "price-desc") {
+        state.items.sort((a, b) => b.price - a.price);
+      } else if (action.payload === "price-asc") {
+        state.items.sort((a, b) => a.price - b.price);
+      } else {
+        state.items.sort((a, b) => a.createdAt - b.createdAt);
+      }
+    },
   },
 });
 
