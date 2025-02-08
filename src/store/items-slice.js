@@ -5,7 +5,9 @@ const itemsSlice = createSlice({
   initialState: { items: [] },
   reducers: {
     setItems(state, action) {
-      state.items = action.payload;
+      state.items = action.payload.map((item) => {
+        return { ...item, createdAt: Date.parse(item.createdAt) };
+      });
     },
   },
 });
