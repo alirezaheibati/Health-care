@@ -2,8 +2,16 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFilter } from "@fortawesome/free-solid-svg-icons";
 import { useDispatch } from "react-redux";
 import { itemsActions } from "../../store/items-slice";
+/**
+ * SortItems Component
+ *
+ * Provides a dropdown menu for sorting shop items based on various criteria.
+ *
+ * Props: None
+ */
 export default function SortItems() {
   const dispatch = useDispatch();
+  // Dispatches sorting actions to the Redux store when the sorting criteria are selected.
   function handleSortingItems(e) {
     dispatch(itemsActions.sortItems(e.target.value));
   }
