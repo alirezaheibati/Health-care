@@ -1,9 +1,9 @@
 import { useDispatch } from "react-redux";
-import FilterItems from "./FilterItems";
 import ItemsContainer from "./ItemsContainer";
 import SortItems from "./SortItems";
 import { itemsActions } from "../../store/items-slice";
 import { useEffect, useState } from "react";
+import FilterModal from "../Filter/FilterModal";
 /**
  * ShopContainer Component
  *
@@ -48,8 +48,8 @@ export default function ShopContainer() {
     <div className="bg-slate-100 mt-2 rounded-xl p-2">
       <SortItems />
       <div className="w-full flex justify-start items-start mt-2">
+        <FilterModal />
         <ItemsContainer isFetching={isFetching} />
-        <FilterItems />
       </div>
     </div>
   );
