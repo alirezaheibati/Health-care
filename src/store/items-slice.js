@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const itemsSlice = createSlice({
   name: "items",
-  initialState: { items: [] },
+  initialState: { items: [], itemsFilterVisibility: false },
   reducers: {
     setItems(state, action) {
       state.items = action.payload.map((item) => {
@@ -19,6 +19,9 @@ const itemsSlice = createSlice({
       } else {
         state.items.sort((a, b) => a.createdAt - b.createdAt);
       }
+    },
+    toggleFilterModal(state) {
+      state.itemsFilterVisibility = !state.itemsFilterVisibility;
     },
   },
 });
