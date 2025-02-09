@@ -15,6 +15,10 @@ export default function SortItems() {
   function handleSortingItems(e) {
     dispatch(itemsActions.sortItems(e.target.value));
   }
+  // Dispatches toggle filter modal action to render FilterModal component on screen.
+  function handleShowingFiltersModal() {
+    dispatch(itemsActions.toggleFilterModal());
+  }
   return (
     <div className="flex justify-start gap-2 items-center">
       <select
@@ -26,7 +30,10 @@ export default function SortItems() {
         <option value={"price-asc"}>Price : Low to High</option>
         <option value={"price-desc"}>Price: High to Low</option>
       </select>
-      <button className="bg-white w-10 h-10 sm:w-auto sm:px-4 rounded-xl border md:hidden">
+      <button
+        className="bg-white w-10 h-10 sm:w-auto sm:px-4 rounded-xl border md:hidden"
+        onClick={handleShowingFiltersModal}
+      >
         <span className="hidden sm:inline mr-2">Filter</span>
         <FontAwesomeIcon icon={faFilter} />
       </button>
