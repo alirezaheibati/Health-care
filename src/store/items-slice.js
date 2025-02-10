@@ -14,14 +14,18 @@ const itemsSlice = createSlice({
         state.filterdItems = state.items.toSorted(
           (a, b) => b.createdAt - a.createdAt
         );
+        state.items.sort((a, b) => b.createdAt - a.createdAt);
       } else if (action.payload === "price-desc") {
         state.filterdItems = state.items.toSorted((a, b) => b.price - a.price);
+        state.items.sort((a, b) => b.price - a.price);
       } else if (action.payload === "price-asc") {
         state.filterdItems = state.items.toSorted((a, b) => a.price - b.price);
+        state.items.sort((a, b) => a.price - b.price);
       } else {
         state.filterdItems = state.items.toSorted(
           (a, b) => a.createdAt - b.createdAt
         );
+        state.items.sort((a, b) => a.createdAt - b.createdAt);
       }
     },
     toggleFilterModal(state) {
