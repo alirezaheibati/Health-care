@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const itemsSlice = createSlice({
   name: "items",
-  initialState: { items: [], itemsFilterVisibility: false },
+  initialState: { items: [], itemsFilterVisibility: false, filterdItems: [] },
   reducers: {
     setItems(state, action) {
       state.items = action.payload.map((item) => {
