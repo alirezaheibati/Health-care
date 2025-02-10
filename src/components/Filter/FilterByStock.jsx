@@ -1,10 +1,18 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { itemsActions } from "../../store/items-slice";
-
+/**
+ * FilterByStock Component
+ *
+ * Provides a toggle switch to filter shop items based on their stock availability.
+ * using dispatches actions to the Redux store to update the filtered items.
+ *
+ * Props: None
+ */
 export default function FilterByStock() {
   const dispatch = useDispatch();
   const [inStock, setInStock] = useState(false);
+  // Toggles the in-stock filter state and dispatches the filter action.
   function handleFilterStockItems() {
     const newInStock = !inStock;
     setInStock((prev) => !prev);
