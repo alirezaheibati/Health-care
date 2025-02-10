@@ -31,6 +31,13 @@ const itemsSlice = createSlice({
     toggleFilterModal(state) {
       state.itemsFilterVisibility = !state.itemsFilterVisibility;
     },
+    filterOutOfStockItems(state, action) {
+      if (action.payload) {
+        state.filterdItems = state.items.filter((item) => item.amount > 0);
+      } else {
+        state.filterdItems = [...state.items];
+      }
+    },
   },
 });
 
