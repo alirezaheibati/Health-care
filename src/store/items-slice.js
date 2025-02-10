@@ -11,13 +11,17 @@ const itemsSlice = createSlice({
     },
     sortItems(state, action) {
       if (action.payload === "date-desc") {
-        state.items.sort((a, b) => b.createdAt - a.createdAt);
+        state.filterdItems = state.items.toSorted(
+          (a, b) => b.createdAt - a.createdAt
+        );
       } else if (action.payload === "price-desc") {
-        state.items.sort((a, b) => b.price - a.price);
+        state.filterdItems = state.items.toSorted((a, b) => b.price - a.price);
       } else if (action.payload === "price-asc") {
-        state.items.sort((a, b) => a.price - b.price);
+        state.filterdItems = state.items.toSorted((a, b) => a.price - b.price);
       } else {
-        state.items.sort((a, b) => a.createdAt - b.createdAt);
+        state.filterdItems = state.items.toSorted(
+          (a, b) => a.createdAt - b.createdAt
+        );
       }
     },
     toggleFilterModal(state) {
