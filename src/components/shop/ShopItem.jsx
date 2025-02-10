@@ -6,23 +6,29 @@ export default function ShopItem({ item }) {
         <h2 className="my-2 text-xl">{item.name}</h2>
       </div>
       <div>
-        <div className="flex justify-between items-center">
-          <p className="text-lg">
-            $
-            {item.discount > 0
-              ? ((item.price * (100 - item.discount)) / 100).toFixed(2)
-              : item.price.toFixed(2)}
-          </p>
-          {item.discount > 0 ? (
-            <p className="text-gray-500">
-              $<del>{item.price.toFixed(2)}</del>
+        {item.amount <= 0 ? (
+          <p>Out of Stock</p>
+        ) : (
+          <div className="flex justify-between items-center">
+            <p className="text-lg">
+              $
+              {item.discount > 0
+                ? ((item.price * (100 - item.discount)) / 100).toFixed(2)
+                : item.price.toFixed(2)}
             </p>
-          ) : (
-            ""
-          )}
-        </div>
-
-        <button className="bg-[#252c62] w-full rounded-lg p-1 text-slate-50 mt-2">
+            {item.discount > 0 ? (
+              <p className="text-gray-500">
+                $<del>{item.price.toFixed(2)}</del>
+              </p>
+            ) : (
+              ""
+            )}
+          </div>
+        )}
+        <button
+          className="bg-[#252c62] w-full rounded-lg p-1 text-slate-50 mt-2 disabled:bg-gray-300 disabled:cursor-not-allowed"
+          disabled={item.amount <= 0}
+        >
           Add to cart
         </button>
       </div>
