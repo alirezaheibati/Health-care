@@ -5,7 +5,7 @@ const itemsSlice = createSlice({
   initialState: { items: [], itemsFilterVisibility: false, filterdItems: [] },
   reducers: {
     setItems(state, action) {
-      state.items = action.payload.map((item) => {
+      state.filterdItems = state.items = action.payload.map((item) => {
         return { ...item, createdAt: Date.parse(item.createdAt) };
       });
     },
