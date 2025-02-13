@@ -44,6 +44,12 @@ const itemsSlice = createSlice({
       );
       state.filterdItems = [...brandItems];
     },
+    filterItemsByTag(state, action) {
+      const filterdItemsByTag = state.items.filter((item) =>
+        item.category.includes(action.payload)
+      );
+      state.filterdItems = [...filterdItemsByTag];
+    },
   },
 });
 
