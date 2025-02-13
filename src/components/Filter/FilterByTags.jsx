@@ -1,13 +1,19 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { itemsActions } from "../../store/items-slice";
 
 export default function FilterByTags() {
-  const filteredItems = useSelector((state) => state.items.filterdItems);
+  const dispatch = useDispatch();
+  const items = useSelector((state) => state.items.items);
   let allTags = [];
-  filteredItems.forEach((item) => {
+  items.forEach((item) => {
     allTags = [...allTags, ...item.category];
   });
   const tagsSet = new Set(allTags);
   const tagsList = [...tagsSet];
+
+  function handleFilterByTag(e) {
+    dispatch(itemsActions.filterItemsByTag(e.target.value));
+  }
   return (
     <div>
       <h2 className="text-xl mb-1">Tags</h2>
@@ -15,10 +21,12 @@ export default function FilterByTags() {
         {tagsList.map((tag) => (
           <li className="mb-1" key={tag}>
             <input
-              type="checkbox"
+              type="radio"
               name="tags"
+              value={tag}
               id={tag}
               className="mr-1 translate-y-[1px]"
+              onChange={handleFilterByTag}
             />
             <label htmlFor={tag}>{tag}</label>
           </li>
