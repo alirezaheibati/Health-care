@@ -38,6 +38,12 @@ const itemsSlice = createSlice({
         state.filterdItems = [...state.items];
       }
     },
+    filterItemsByBrand(state, action) {
+      const brandItems = state.items.filter(
+        (item) => action.payload === item.brand
+      );
+      state.filterdItems = [...brandItems];
+    },
   },
 });
 
