@@ -1,9 +1,12 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import ItemsContainer from "./ItemsContainer";
 import SortItems from "./SortItems";
 import { itemsActions } from "../../store/items-slice";
 import { useEffect, useState } from "react";
 import FilterModal from "../Filter/FilterModal";
+import Spinner from "../ui/Spinner";
+
+import { uiActions } from "../../store/ui-slice";
 /**
  * ShopContainer Component
  *
@@ -14,10 +17,10 @@ import FilterModal from "../Filter/FilterModal";
  * Props: None
  */
 export default function ShopContainer() {
+  const spinnerVisibility = useSelector((state) => state.ui.spinnerVisibility);
   const dispatch = useDispatch();
-  const [isFetching, setIsFetching] = useState(false);
   useEffect(() => {
-    setIsFetching(true);
+    dispatch(uiActions.showSpinner());
     async function loadItems() {
       try {
         const responese = await fetch(
@@ -35,22 +38,25 @@ export default function ShopContainer() {
           throw new Error("Fetching items failed");
         }
         const data = await responese.json();
-        setIsFetching(false);
+        dispatch(uiActions.hideSpinner());
         dispatch(itemsActions.setItems(data.results));
       } catch (err) {
-        setIsFetching(false);
+        dispatch(uiActions.hideSpinner());
         console.log(err);
       }
     }
     loadItems();
   }, []);
   return (
-    <div className="bg-slate-100 mt-2 rounded-xl p-2">
-      <SortItems />
-      <div className="w-full flex justify-start items-start mt-2">
-        <FilterModal />
-        <ItemsContainer isFetching={isFetching} />
+    <>
+      {spinnerVisibility && <Spinner />}
+      <div className="bg-slate-100 mt-2 rounded-xl p-2">
+        <SortItems />
+        <div className="w-full flex justify-start items-start mt-2">
+          <FilterModal />
+          <ItemsContainer />
+        </div>
       </div>
-    </div>
+    </>
   );
 }
