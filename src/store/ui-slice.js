@@ -7,7 +7,7 @@ const uiSlice = createSlice({
     showSpinner(state) {
       state.spinnerVisibility = true;
     },
-    hideSpinner() {
+    hideSpinner(state) {
       state.spinnerVisibility = false;
     },
   },
