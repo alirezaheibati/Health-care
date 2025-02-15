@@ -16,7 +16,7 @@ export default function FilterByStock() {
   function handleFilterStockItems() {
     const newInStock = !inStock;
     setInStock((prev) => !prev);
-    dispatch(itemsActions.filterOutOfStockItems(newInStock));
+    dispatch(itemsActions.setAvailability(newInStock));
   }
   return (
     <div className="flex justify-between items-center">
