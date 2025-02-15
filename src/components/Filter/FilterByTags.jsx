@@ -12,7 +12,7 @@ export default function FilterByTags() {
   const tagsList = [...tagsSet];
 
   function handleFilterByTag(e) {
-    dispatch(itemsActions.filterItemsByTag(e.target.value));
+    dispatch(itemsActions.setTag(e.target.value));
   }
   return (
     <div>
