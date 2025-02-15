@@ -7,7 +7,7 @@ export default function FilterByBrands() {
   const brandsList = [...brandsSet];
   const dispatch = useDispatch();
   function filterByBrandHandler(e) {
-    dispatch(itemsActions.filterItemsByBrand(e.target.value));
+    dispatch(itemsActions.setBrand(e.target.value));
   }
   return (
     <div>
