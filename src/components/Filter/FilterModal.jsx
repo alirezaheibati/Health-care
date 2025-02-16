@@ -10,7 +10,9 @@ export default function FilterModal() {
   const filtersVisibility = useSelector(
     (state) => state.items.itemsFilterVisibility
   );
-  const filterdItems = useSelector((state) => state.items.filterdItems);
+  const filteredItemsCount = useSelector(
+    (state) => state.items.filteredItemsCount
+  );
   function hideFiltersWindow() {
     dispatch(itemsActions.toggleFilterModal());
   }
@@ -42,8 +44,11 @@ export default function FilterModal() {
         >
           Close
         </button>
-        <button className="w-[49%] bg-[#ef4056] rounded-lg py-2 text-slate-50">
-          View {filterdItems.length} items
+        <button
+          className="w-[49%] bg-[#ef4056] rounded-lg py-2 text-slate-50"
+          onClick={hideFiltersWindow}
+        >
+          View {filteredItemsCount} items
         </button>
       </div>
     </div>
