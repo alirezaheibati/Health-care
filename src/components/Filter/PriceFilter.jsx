@@ -1,31 +1,62 @@
 import { useEffect } from "react";
 import { useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { itemsActions } from "../../store/items-slice";
+
 let minPrice;
 let maxPrice;
-
 export default function PriceFilter() {
-  const filteredItems = useSelector((state) => state.items.filterdItems);
-  const priceList = filteredItems.map((item) => item.price);
-  const [slideOne, setSlideOne] = useState();
-  const [slideTwo, setSlideTwo] = useState();
+  const dispatch = useDispatch();
+  const items = useSelector((state) => state.items.items);
+
+  const [slideOne, setSlideOne] = useState(0);
+  const [slideTwo, setSlideTwo] = useState(0);
   useEffect(() => {
+    const priceList = items.map((item) => item.price);
     minPrice = Math.min(...priceList);
     maxPrice = Math.max(...priceList);
+    dispatch(itemsActions.setPrice({ min: minPrice, max: maxPrice }));
     setSlideOne(minPrice);
     setSlideTwo(maxPrice);
-  }, [filteredItems]);
-
+  }, [items]);
   function slideOneFn(e) {
-    setSlideOne(e.target.value);
     if (e.target.value >= slideTwo) {
       setSlideOne(slideTwo - 1);
+
+      dispatch(
+        itemsActions.setPrice({
+          min: slideTwo - 1,
+          max: slideTwo,
+        })
+      );
+    } else {
+      setSlideOne(e.target.value);
+      dispatch(
+        itemsActions.setPrice({
+          min: e.target.value,
+          max: slideTwo,
+        })
+      );
     }
   }
   function slideTwoFn(e) {
-    setSlideTwo(e.target.value);
     if (e.target.value <= slideOne) {
-      setSlideTwo((prev) => slideOne + 1);
+      setSlideTwo(slideOne + 1);
+      dispatch(
+        itemsActions.setPrice({
+          min: slideOne,
+          max: slideOne + 1,
+        })
+      );
+    } else {
+      setSlideTwo(e.target.value);
+
+      dispatch(
+        itemsActions.setPrice({
+          min: slideOne,
+          max: e.target.value,
+        })
+      );
     }
   }
   return (
@@ -36,7 +67,7 @@ export default function PriceFilter() {
         <span> - </span>
         <span id="range2">${slideTwo}</span>
       </div>
-      <div className="relative w-full py-4 ">
+      <div className="relative w-full py-4">
         <div
           className={`absolute bg-gray-200 h-2 w-full rounded-lg top-2 `}
         ></div>
@@ -53,7 +84,7 @@ export default function PriceFilter() {
           max={maxPrice}
           value={slideOne}
           id="slider-1"
-          onInput={slideOneFn}
+          onChange={slideOneFn}
           className="slider absolute left-0 top-2"
         />
 
@@ -63,7 +94,7 @@ export default function PriceFilter() {
           max={maxPrice}
           value={slideTwo}
           id="slider-2"
-          onInput={slideTwoFn}
+          onChange={slideTwoFn}
           className="slider absolute left-0 top-2"
         />
       </div>
