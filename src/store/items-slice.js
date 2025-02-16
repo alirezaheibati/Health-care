@@ -2,56 +2,54 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const itemsSlice = createSlice({
   name: "items",
-  initialState: { items: [], itemsFilterVisibility: false, filterdItems: [] },
+  initialState: {
+    items: [],
+    itemsFilterVisibility: false,
+    brand: "",
+    tag: "",
+    areInStock: false,
+    price: { min: 0, max: 0 },
+    filteredItemsCount: 0,
+  },
   reducers: {
     setItems(state, action) {
-      state.filterdItems = state.items = action.payload.map((item) => {
+      state.items = action.payload.map((item) => {
         return { ...item, createdAt: Date.parse(item.createdAt) };
       });
     },
     sortItems(state, action) {
       if (action.payload === "date-desc") {
-        state.filterdItems = state.items.toSorted(
-          (a, b) => b.createdAt - a.createdAt
-        );
         state.items.sort((a, b) => b.createdAt - a.createdAt);
       } else if (action.payload === "price-desc") {
-        state.filterdItems = state.items.toSorted((a, b) => b.price - a.price);
         state.items.sort((a, b) => b.price - a.price);
       } else if (action.payload === "price-asc") {
-        state.filterdItems = state.items.toSorted((a, b) => a.price - b.price);
         state.items.sort((a, b) => a.price - b.price);
       } else {
-        state.filterdItems = state.items.toSorted(
-          (a, b) => a.createdAt - b.createdAt
-        );
         state.items.sort((a, b) => a.createdAt - b.createdAt);
       }
     },
     toggleFilterModal(state) {
       state.itemsFilterVisibility = !state.itemsFilterVisibility;
     },
-    filterOutOfStockItems(state, action) {
-      if (action.payload) {
-        state.filterdItems = state.items.filter((item) => item.amount > 0);
-      } else {
-        state.filterdItems = [...state.items];
-      }
+    setBrand(state, action) {
+      state.brand = action.payload;
     },
-    filterItemsByBrand(state, action) {
-      const brandItems = state.items.filter(
-        (item) => action.payload === item.brand
-      );
-      state.filterdItems = [...brandItems];
+    setTag(state, action) {
+      state.tag = action.payload;
     },
-    filterItemsByTag(state, action) {
-      const filterdItemsByTag = state.items.filter((item) =>
-        item.category.includes(action.payload)
-      );
-      state.filterdItems = [...filterdItemsByTag];
+    setPrice(state, action) {
+      state.price = {
+        min: action.payload.min,
+        max: action.payload.max,
+      };
+    },
+    setAvailability(state) {
+      state.areInStock = !state.areInStock;
+    },
+    setFilteredItemsCount(state, action) {
+      state.filteredItemsCount = action.payload;
     },
   },
 });
-
 export const itemsActions = itemsSlice.actions;
 export default itemsSlice;
