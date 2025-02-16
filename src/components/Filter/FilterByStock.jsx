@@ -1,5 +1,4 @@
-import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { itemsActions } from "../../store/items-slice";
 /**
  * FilterByStock Component
@@ -11,12 +10,10 @@ import { itemsActions } from "../../store/items-slice";
  */
 export default function FilterByStock() {
   const dispatch = useDispatch();
-  const [inStock, setInStock] = useState(false);
-  // Toggles the in-stock filter state and dispatches the filter action.
+  const areInStock = useSelector((state) => state.items.areInStock);
+
   function handleFilterStockItems() {
-    const newInStock = !inStock;
-    setInStock((prev) => !prev);
-    dispatch(itemsActions.setAvailability(newInStock));
+    dispatch(itemsActions.setAvailability());
   }
   return (
     <div className="flex justify-between items-center">
@@ -28,7 +25,7 @@ export default function FilterByStock() {
       >
         <div
           className={`circle w-4 h-4 rounded-full absolute transition-[left] ${
-            inStock ? "left-[2px] bg-[#3264fe]" : " left-[28px] bg-gray-300"
+            areInStock ? "left-[2px] bg-[#3264fe]" : " left-[28px] bg-gray-300"
           } top-[2px]`}
         ></div>
       </div>
