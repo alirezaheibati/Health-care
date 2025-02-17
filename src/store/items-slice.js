@@ -49,6 +49,11 @@ const itemsSlice = createSlice({
     setFilteredItemsCount(state, action) {
       state.filteredItemsCount = action.payload;
     },
+    resetFilters(state) {
+      state.brand = "";
+      state.tag = "";
+      (state.areInStock = false), (state.filteredItemsCount = 0);
+    },
   },
 });
 export const itemsActions = itemsSlice.actions;
