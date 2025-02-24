@@ -1,3 +1,6 @@
+import { useDispatch } from "react-redux";
+import { cartActions } from "../../store/cart-slice";
+
 /**
  * CartItem Component
  *
@@ -7,8 +10,13 @@
  * - `item` (object): The item object containing title, price, amount, and image.
  */
 export default function CartItem({ item }) {
-  function increaseitemAmountHandler() {}
-  function decreaseitemAmountHandler() {}
+  const dispatch = useDispatch();
+  function increaseitemAmountHandler() {
+    dispatch(cartActions.addToCart(item));
+  }
+  function decreaseitemAmountHandler() {
+    dispatch(cartActions.removeFromCart(item.objectId));
+  }
 
   return (
     <li className="py-2 text-xl hover:opacity-90 flex flex-row-reverse justify-start items-stretch gap-[2%] border-b border-solid border-slate-500">
@@ -26,7 +34,7 @@ export default function CartItem({ item }) {
           {item.title}
         </a>
         <div className="flex w-full justify-between items-center">
-          <p className="">${item.price * item.amount}</p>
+          <p className="">${item.price * item.cartCount}</p>
           <div className="flex justify-center items-center gap-2">
             <button
               className="flex justify-center text-xl items-center bg-slate-900 text-slate-50 w-6 h-6 rounded-full"
@@ -37,7 +45,7 @@ export default function CartItem({ item }) {
             <input
               type="number"
               readOnly
-              value={item.amount}
+              value={item.cartCount}
               className="w-9 text-base h-7 px-[2px] border shadow-lg rounded-md no-arrows outline-none text-center"
             />
             <button
