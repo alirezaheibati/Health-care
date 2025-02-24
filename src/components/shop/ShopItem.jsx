@@ -1,4 +1,10 @@
+import { useDispatch } from "react-redux";
+import { cartActions } from "../../store/cart-slice";
 export default function ShopItem({ item }) {
+  const dispatch = useDispatch();
+  function itemAddToCartHandler() {
+    dispatch(cartActions.addToCart(item));
+  }
   return (
     <div className="p-4 rounded-lg w-full max-w-[300px] sm:w-[49%] lg:w-[32%] xl:w-[24%] sm:max-w-[400px] flex flex-col justify-between border-2 bg-white shadow-lg">
       <div>
@@ -28,6 +34,7 @@ export default function ShopItem({ item }) {
         <button
           className="bg-[#252c62] w-full rounded-lg p-1 text-slate-50 mt-2 disabled:bg-gray-300 disabled:cursor-not-allowed"
           disabled={item.amount <= 0}
+          onClick={itemAddToCartHandler}
         >
           Add to cart
         </button>
