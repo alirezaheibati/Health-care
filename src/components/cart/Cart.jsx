@@ -1,3 +1,6 @@
+import { useSelector } from "react-redux";
+import CartItem from "./CartItem";
+
 /**
  * Cart Component
  *
@@ -8,6 +11,7 @@
  * - `onHideCart` (func): Function to hide the cart.
  */
 export default function Cart({ showCart, onHideCart }) {
+  const cartItems = useSelector((state) => state.cart.cartItems);
   function hideCartHandler() {
     onHideCart();
   }
@@ -37,10 +41,17 @@ export default function Cart({ showCart, onHideCart }) {
         </div>
         <div className="w-full h-[90%] relative px-4 flex flex-col justify-between items-start py-4">
           <ul className="w-full overflow-y-auto h-3/4 px-2">
-            {/* cart items goes here */}
+            {cartItems.map((item) => (
+              <CartItem key={item.objectId} item={item} />
+            ))}
           </ul>
           <div className="flex justify-between items-center w-full">
-            <p className="">$0.00</p>
+            <p className="">
+              $
+              {cartItems
+                .reduce((total, item) => total + item.price * item.cartCount, 0)
+                .toFixed(2)}
+            </p>
             <p className="font-bold text-xl">:Total</p>
           </div>
           <div className=" border-t border-solid border-slate-900 w-full flex justify-between items-center gap-[2%] py-4">
