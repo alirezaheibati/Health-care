@@ -40,7 +40,7 @@ export default function CartItem({ item }) {
               className="flex justify-center text-xl items-center bg-slate-900 text-slate-50 w-6 h-6 rounded-full"
               onClick={increaseitemAmountHandler}
             >
-              +
+              <p className="mb-1 text-2xl">+</p>
             </button>
             <input
               type="number"
