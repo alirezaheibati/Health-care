@@ -1,19 +1,18 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import CartItem from "./CartItem";
+import { uiActions } from "../../store/ui-slice";
 
 /**
  * Cart Component
  *
  * Displays a shopping cart with options to checkout or close the cart.
- *
- * Props:
- * - `showCart` (bool): Controls the visibility of the cart.
- * - `onHideCart` (func): Function to hide the cart.
  */
-export default function Cart({ showCart, onHideCart }) {
+export default function Cart() {
+  const showCart = useSelector((state) => state.ui.cartVisibility);
+  const dispatch = useDispatch();
   const cartItems = useSelector((state) => state.cart.cartItems);
   function hideCartHandler() {
-    onHideCart();
+    dispatch(uiActions.hideCart());
   }
   return (
     <div
@@ -28,6 +27,7 @@ export default function Cart({ showCart, onHideCart }) {
         className={`h-full w-full bg-black/60 absolute right-0 top-0 z-10 transition-none ${
           !showCart ? " opacity-0" : " opacity-100"
         }`}
+        onClick={hideCartHandler}
       ></div>
       <div
         className={`h-full w-full max-w-[350px] relative z-20 overflow-hidden bg-white ${
