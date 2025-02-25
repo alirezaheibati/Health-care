@@ -16,6 +16,8 @@ import TopNavItem from "./TopNavItem.jsx";
 import { useState } from "react";
 import Cart from "../cart/Cart.jsx";
 import SideNav from "./SideNav.jsx";
+import { useDispatch } from "react-redux";
+import { uiActions } from "../../store/ui-slice.js";
 
 /**
  * TopNav Component
@@ -24,14 +26,11 @@ import SideNav from "./SideNav.jsx";
  * Includes a shopping cart button that toggles the cart's visibility.
  */
 export default function TopNav() {
-  const [showCart, setShowCart] = useState(false);
+  const dispatch = useDispatch();
   const [showNav, setShowNav] = useState(false);
 
-  function handleCloseCart() {
-    setShowCart(false);
-  }
   function handleShowCart() {
-    setShowCart(true);
+    dispatch(uiActions.showCart());
   }
   function handleCloseNav() {
     setShowNav(false);
@@ -41,7 +40,7 @@ export default function TopNav() {
   }
   return (
     <>
-      <Cart showCart={showCart} onHideCart={handleCloseCart} />
+      <Cart />
       <SideNav menuVisibility={showNav} onCloseNav={handleCloseNav} />
       <nav className="bg-gray-100 p-3 pb-1 lg:px-6 w-full rounded-lg">
         <div className="w-full flex justify-between items-center">
