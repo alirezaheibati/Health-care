@@ -32,7 +32,7 @@ export default function ShopItem({ item }) {
           </div>
         )}
         <button
-          className="bg-[#252c62] w-full rounded-lg p-1 text-slate-50 mt-2 disabled:bg-gray-300 disabled:cursor-not-allowed"
+          className="bg-[#252c62] w-full rounded-lg p-1 text-slate-50 mt-2 disabled:bg-gray-300 disabled:cursor-not-allowed active:scale-95"
           disabled={item.amount <= 0}
           onClick={itemAddToCartHandler}
         >
