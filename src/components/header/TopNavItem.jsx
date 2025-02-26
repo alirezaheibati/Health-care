@@ -1,5 +1,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+
 /**
  * TopNavItem Component
  *
@@ -23,7 +24,7 @@ export default function TopNavItem({ title, icon, isSpecial, linkTo }) {
     >
       <NavLink
         to={linkTo}
-        end={true}
+        end={title === "Home" ? true : false}
         className={({ isActive }) => (isActive ? "[&_div]:w-full" : "")}
       >
         <p>
