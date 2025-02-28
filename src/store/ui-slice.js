@@ -2,7 +2,11 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const uiSlice = createSlice({
   name: "ui",
-  initialState: { spinnerVisibility: false, cartVisibility: false },
+  initialState: {
+    spinnerVisibility: false,
+    cartVisibility: false,
+    errorModal: { visibility: false, title: "", message: "" },
+  },
   reducers: {
     showSpinner(state) {
       state.spinnerVisibility = true;
@@ -15,6 +19,16 @@ const uiSlice = createSlice({
     },
     hideCart(state) {
       state.cartVisibility = false;
+    },
+    showErrorModal(state, action) {
+      state.errorModal = {
+        visibility: true,
+        message: action.payload.message,
+        title: action.payload.title,
+      };
+    },
+    hideErrorModal(state) {
+      state.errorModal = { visibility: false, message: "", title: "" };
     },
   },
 });
