@@ -4,6 +4,7 @@ import RootLayout from "./pages/RootLayout";
 import Shop from "./pages/Shop";
 import Book from "./pages/Book";
 import DoctorProfile from "./pages/DoctorProfile";
+import FAndQ from "./pages/FAndQ";
 
 const router = createBrowserRouter([
   {
@@ -14,6 +15,7 @@ const router = createBrowserRouter([
       { path: "shop", element: <Shop /> },
       { path: "book-appointment", element: <Book /> },
       { path: "book-appointment/:doctorID", element: <DoctorProfile /> },
+      { path: "FAQs", element: <FAndQ /> },
     ],
   },
 ]);
