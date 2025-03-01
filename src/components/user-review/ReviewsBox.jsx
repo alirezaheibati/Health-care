@@ -49,18 +49,18 @@ export default function ReviewsBox() {
   }, []);
   // Sets up an interval to automatically change the active review at set intervals.
   useEffect(() => {
-    if (reviews.length === 0) return;
     const interval = setInterval(() => {
-      setActiveReview((prevReviewId) => {
+      setActiveReview((prevReview) => {
         const currentIndex = reviews.findIndex(
-          (review) => review.objectId === prevReviewId
+          (review) => review.objectId === prevReview
         );
+
         const nextIndex = (currentIndex + 1) % reviews.length;
         return reviews[nextIndex].objectId;
       });
     }, 3000);
     return () => clearInterval(interval);
-  }, []);
+  }, [reviews]);
   return (
     <>
       {reviews.map((review) => (
