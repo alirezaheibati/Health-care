@@ -1,5 +1,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import { useNavigate } from "react-router-dom";
 /**
  * SingleFeature Component
  *
@@ -13,6 +14,10 @@ import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
  * - `description` (string): The description text of the feature.
  */
 export default function SingleFeature({ bgColor, image, title, description }) {
+  const navigate = useNavigate();
+  function navigateHandler() {
+    navigate("/projects/healthcare/book-appointment");
+  }
   const formatedText = title.split("<br />");
   return (
     <div
@@ -30,7 +35,10 @@ export default function SingleFeature({ bgColor, image, title, description }) {
         </h2>
         <p className="text-sm">{description}</p>
       </div>
-      <button className="w-12 h-12 rounded-full bg-[#252c62] text-slate-50 text-xl">
+      <button
+        className="w-12 h-12 rounded-full bg-[#252c62] text-slate-50 text-xl"
+        onClick={navigateHandler}
+      >
         <FontAwesomeIcon icon={faArrowRight} />
       </button>
     </div>
