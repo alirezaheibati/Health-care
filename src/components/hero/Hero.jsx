@@ -1,5 +1,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import doctorImg from "./../../assets/doctor.png";
+import { useNavigate } from "react-router-dom";
 import {
   faArrowRight,
   faCalendarCheck,
@@ -14,6 +15,11 @@ import HeroFeature from "./HeroFeature";
  * - None
  */
 export default function Hero() {
+  const navigate = useNavigate();
+
+  function bookAppointmentHandler() {
+    navigate("/projects/healthcare/book-appointment");
+  }
   return (
     <>
       <div className="p-4 rounded-lg bg-[#252c62] mt-3 relative h-[550px] overflow-hidden flex justify-between items-center flex-col">
@@ -47,7 +53,10 @@ export default function Hero() {
                 your schedule.
               </span>
             </p>
-            <button className="flex justify-start items-center text-slate-900 my-4">
+            <button
+              className="flex justify-start items-center text-slate-900 my-4"
+              onClick={bookAppointmentHandler}
+            >
               <p className=" bg-pink-300 rounded-full h-12 px-4 flex items-center">
                 Book Appointment
               </p>
