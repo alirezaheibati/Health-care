@@ -5,6 +5,7 @@ const businessCardsSlice = createSlice({
   initialState: {
     cards: [],
     filterClause: "All Experties",
+    experty: "Cardiologist",
   },
   reducers: {
     setCards(state, action) {
@@ -23,6 +24,9 @@ const businessCardsSlice = createSlice({
     },
     setFilterClause(state, action) {
       state.filterClause = action.payload;
+    },
+    setExperty(state, action) {
+      state.experty = action.payload;
     },
   },
 });
