@@ -77,12 +77,6 @@ export default function SideNav({ menuVisibility, onCloseNav }) {
               icon={faAddressBook}
               linkTo={"/projects/healthcare/contact"}
             />
-            <SideNavItem
-              title={"Offers"}
-              icon={faGift}
-              linkTo={"/projects/healthcare/shop"}
-              isSpecial
-            />
           </ul>
         </div>
       </div>
