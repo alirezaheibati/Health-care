@@ -18,7 +18,7 @@ import ExpertiseBtn from "./ExpertiseBtn";
 export default function ExpertiesList() {
   return (
     <ul className=" no-arrows w-[calc(100%-17px)] py-4 flex justify-start items-end gap-2 overflow-x-auto">
-      <ExpertiseBtn title={"Cardiologist"} image={Cardiologist} isActive />
+      <ExpertiseBtn title={"Cardiologist"} image={Cardiologist} />
       <ExpertiseBtn title={"Dermatalogist"} image={Dermatalogist} />
       <ExpertiseBtn title={"Internist"} image={Internist} />
       <ExpertiseBtn title={"Ophthalmologist"} image={Ophthalmologist} />
