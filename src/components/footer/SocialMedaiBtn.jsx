@@ -12,7 +12,7 @@ export default function SocialMedaiBtn({ icon, linkTo }) {
   return (
     <a
       href={linkTo}
-      className="w-10 h-10 rounded-full bg-sky-100 text-xl text-[#252c62] flex justify-center items-center"
+      className="w-10 h-10 rounded-full bg-sky-100 text-xl text-[#252c62] flex justify-center items-center hover:bg-[#252c62] hover:text-sky-100"
     >
       <FontAwesomeIcon icon={icon} />
     </a>
