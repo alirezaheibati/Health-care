@@ -1,55 +1,41 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import DoctorProfile from "./DoctorProfile";
-import doctor1 from "./../../assets/doctors/doctor-1.png";
-import doctor2 from "./../../assets/doctors/doctor-2.png";
-import doctor3 from "./../../assets/doctors/doctor-3.png";
-import doctor4 from "./../../assets/doctors/doctor-4.png";
-import doctor5 from "./../../assets/doctors/doctor-5.png";
-import doctor6 from "./../../assets/doctors/doctor-6.png";
-import doctor7 from "./../../assets/doctors/doctor-7.png";
-import doctor8 from "./../../assets/doctors/doctor-8.png";
+import { useSelector } from "react-redux";
+import { faBoltLightning, faXmark } from "@fortawesome/free-solid-svg-icons";
 export default function DoctorsList() {
+  const doctorsList = useSelector((state) => state.cards.cards);
+  const activeExperty = useSelector((state) => state.cards.experty);
+  const expertDoctorsList =
+    doctorsList.filter((doctor) => activeExperty === doctor.expertise).length >
+    0;
   return (
-    <ul className="custom-scrollbar w-full overflow-y-auto flex justify-start items-center gap-[1%] py-8">
-      <DoctorProfile
-        name={"DR. Alireza Heibati"}
-        image={doctor1}
-        expertise={"Cardiologist"}
-      />
-      <DoctorProfile
-        name={"DR. Alireza Heibati"}
-        image={doctor2}
-        expertise={"Cardiologist"}
-      />
-      <DoctorProfile
-        name={"DR. Alireza Heibati"}
-        image={doctor3}
-        expertise={"Cardiologist"}
-      />
-      <DoctorProfile
-        name={"DR. Alireza Heibati"}
-        image={doctor4}
-        expertise={"Cardiologist"}
-      />
-      <DoctorProfile
-        name={"DR. Alireza Heibati"}
-        image={doctor5}
-        expertise={"Cardiologist"}
-      />
-      <DoctorProfile
-        name={"DR. Alireza Heibati"}
-        image={doctor6}
-        expertise={"Cardiologist"}
-      />
-      <DoctorProfile
-        name={"DR. Alireza Heibati"}
-        image={doctor7}
-        expertise={"Cardiologist"}
-      />
-      <DoctorProfile
-        name={"DR. Alireza Heibati"}
-        image={doctor8}
-        expertise={"Cardiologist"}
-      />
+    <ul
+      className={`custom-scrollbar w-full overflow-y-auto flex items-center ${
+        expertDoctorsList ? " justify-start " : " justify-center "
+      } gap-[1%] py-8 min-h-[400px]`}
+    >
+      {expertDoctorsList ? (
+        doctorsList
+          .filter((doctor) => activeExperty === doctor.expertise)
+          .map((card) => {
+            return (
+              <DoctorProfile
+                name={card.username}
+                image={card.image}
+                expertise={card.expertise}
+              />
+            );
+          })
+      ) : (
+        <p className="text-xl">
+          <FontAwesomeIcon
+            icon={faBoltLightning}
+            className="mr-2 text-red-500"
+          />
+          There is no doctor with your desierd experty right now. we are trying
+          to complete our expertiese as soon as possible.
+        </p>
+      )}
     </ul>
   );
 }
