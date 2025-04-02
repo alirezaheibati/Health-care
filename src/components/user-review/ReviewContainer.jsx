@@ -9,7 +9,7 @@ import ReviewsAverage from "./ReviewsAverage.jsx";
  */
 export default function ReviewContainer() {
   return (
-    <section className="py-8 text-[#252c62]">
+    <section className="py-8 text-[#252c62] min-h-screen flex flex-col justify-center items-center">
       <ReviewsAverage />
       <ReviewsBox />
     </section>
