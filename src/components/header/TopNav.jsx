@@ -96,12 +96,6 @@ export default function TopNav() {
             icon={faAddressBook}
             linkTo={"/projects/healthcare/contact"}
           />
-          <TopNavItem
-            title={"Offers"}
-            icon={faGift}
-            isSpecial={true}
-            linkTo={"/projects/healthcare/shop"}
-          />
         </ul>
       </nav>
     </>
