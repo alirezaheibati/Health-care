@@ -6,7 +6,6 @@ import {
   faCalendarCheck,
   faCartShopping,
   faCircleQuestion,
-  faGift,
   faHouseChimney,
   faRightToBracket,
   faShop,
@@ -18,6 +17,7 @@ import Cart from "../cart/Cart.jsx";
 import SideNav from "./SideNav.jsx";
 import { useDispatch } from "react-redux";
 import { uiActions } from "../../store/ui-slice.js";
+import { useNavigate } from "react-router-dom";
 
 /**
  * TopNav Component
@@ -28,7 +28,10 @@ import { uiActions } from "../../store/ui-slice.js";
 export default function TopNav() {
   const dispatch = useDispatch();
   const [showNav, setShowNav] = useState(false);
-
+  const navigate = useNavigate();
+  function userAuthHandler() {
+    navigate("/projects/healthcare/auth");
+  }
   function handleShowCart() {
     dispatch(uiActions.showCart());
   }
@@ -51,7 +54,10 @@ export default function TopNav() {
             <NavSearchBox />
           </div>
           <div className="flex justify-start items-center gap-2 lg:gap-4 flex-row-reverse md:flex-row">
-            <button className="text-gray-600 justify-start items-center gap-4 border-2 px-2 py-1 rounded-md border-gray-400 hidden md:flex">
+            <button
+              className="text-gray-600 justify-start items-center gap-4 border-2 px-2 py-1 rounded-md border-gray-400 hidden md:flex"
+              onClick={userAuthHandler}
+            >
               <FontAwesomeIcon icon={faRightToBracket} />
               <p>Login | Register</p>
             </button>
