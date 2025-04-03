@@ -18,13 +18,7 @@ export default function DoctorsList() {
         doctorsList
           .filter((doctor) => activeExperty === doctor.expertise)
           .map((card) => {
-            return (
-              <DoctorProfile
-                name={card.username}
-                image={card.image}
-                expertise={card.expertise}
-              />
-            );
+            return <DoctorProfile card={card} />;
           })
       ) : (
         <p className="text-xl">
